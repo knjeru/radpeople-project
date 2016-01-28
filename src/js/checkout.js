@@ -28,7 +28,9 @@ $('document').ready(function() {
 
 });
 
-$('.submit').on('click', function() {
+$('.submit').on('click', function(event) {
+
+
 
     var cardInfo = {
         number: $('.card-number').val(),
@@ -38,6 +40,8 @@ $('.submit').on('click', function() {
     };
 
 Stripe.card.createToken(cardInfo, stripeResponseHandler);
+
+event.preventDefault();
 
 });
 
@@ -85,3 +89,4 @@ function stripeResponseHandler(status, response) {
         $('.alert-success').toggleClass('hidden');
     }
 }
+
