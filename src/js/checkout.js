@@ -44,7 +44,12 @@ $('.submit').on('click', function(event) {
 Stripe.card.createToken(cardInfo, stripeResponseHandler);
 
 event.preventDefault();
-$('input, select').val('');
+
+if(stripeResponseHandler) {
+    $('input, select').val('');
+};
+
+
 
 
 
@@ -89,9 +94,11 @@ $('.card-cvc').on('blur', function() {
 function stripeResponseHandler(status, response) {
     if (response.error) {
         $('.alert-danger').toggleClass('hidden');
+        return false;
     } else {
         $('.alert-danger').hide();
         $('.alert-success').toggleClass('hidden');
+        return true;
     }
 }
 
