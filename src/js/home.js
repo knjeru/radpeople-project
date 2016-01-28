@@ -24,7 +24,12 @@ $(document).on('ready', function() {
 
     });
 
-
+    $('.newsSubmit').on('click', function(event) {
+      event.preventDefault();
+      if ($('#NewsletterSignup').hasClass('success')) {
+        $('#newsletterBar').hide();
+      };
+    })
 
 
     // Slider
