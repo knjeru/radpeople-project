@@ -28,6 +28,14 @@ $('document').ready(function() {
 
 });
 
+$('.cancel').on('click', function(event) {
+    event.preventDefault();
+    $('form').forEach(function(field) {
+        return field.val('');
+    });
+});
+
+
 $('.submit').on('click', function(event) {
 
 
@@ -40,9 +48,9 @@ $('.submit').on('click', function(event) {
     };
 
 Stripe.card.createToken(cardInfo, stripeResponseHandler);
-
-event.preventDefault();
 $('form').val('');
+event.preventDefault();
+
 
 });
 
