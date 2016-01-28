@@ -44,8 +44,8 @@ $('.submit').on('click', function(event) {
 Stripe.card.createToken(cardInfo, stripeResponseHandler);
 
 event.preventDefault();
-$('input').val('');
-$('select').reset();
+$('input, select').val('');
+
 
 
 });
