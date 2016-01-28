@@ -91,11 +91,10 @@ $('.card-cvc').on('blur', function() {
 function stripeResponseHandler(status, response) {
     if (response.error) {
         $('.alert-danger').toggleClass('hidden');
-        return false;
     } else {
         $('.alert-danger').hide();
         $('.alert-success').toggleClass('hidden');
-        return true;
+        $('input, select').val('');
     }
 }
 
