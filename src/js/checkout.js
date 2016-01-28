@@ -28,6 +28,12 @@ $('document').ready(function() {
 
 });
 
+$('.cancel').on('click', function(event) {
+    event.preventDefault();
+    $('input, select').val('');
+
+});
+
 
 
 $('.submit').on('click', function(event) {
@@ -44,15 +50,6 @@ $('.submit').on('click', function(event) {
 Stripe.card.createToken(cardInfo, stripeResponseHandler);
 
 event.preventDefault();
-
-if(stripeResponseHandler) {
-    $('input, select').val('');
-};
-
-
-
-
-
 });
 
 
